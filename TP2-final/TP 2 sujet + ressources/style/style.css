@@ -1,0 +1,82 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300ita‌​lic,400italic,500,500italic,700,700italic,900italic,900);
+body {
+  font-family: "Roboto", sans-serif;
+  background: #fc8862;
+  margin: 0;
+  padding: 0;
+}
+
+.menu {
+  position: fixed;
+  width: 100%;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  top: 0;
+  background: #fc8862;
+  
+}
+.menu > h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 50px;
+  font-weight: 300;
+}
+.menu ul {
+  display: flex;
+  justify-content: center;
+}
+
+.menu ul li {
+  list-style: none;
+  margin: 0 10px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  line-height: 40px;
+}
+
+.menu ul li a:hover {
+  color: #000;
+  border-bottom: 4px solid #fff;
+}
+
+.menu ul li a.active {
+  color: #000;
+}
+.sous{
+    display: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    background-color: #fc8862;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+.menu> ul > li:hover .sous{
+    display: block;
+}
+.sous li{
+    list-style: none;
+    margin: 0 10px;
+    text-align: left;
+    width: 100%;
+    float: none;
+}
+.sous a{
+    padding: 10px;
+    border-bottom: none;
+}
+.sous a:hover{
+    background-color: #af7460;
+    color: #fff;
+}
+
+
+#contenu-page {
+  margin-top: 230px;
+}

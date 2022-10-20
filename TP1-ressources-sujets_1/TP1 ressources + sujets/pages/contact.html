@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+  </head>
+  <body>
+    <h1>Mille et un voyage</h1>
+    <hr />
+    <h2>Menu</h2>
+    <nav>
+      <a href="../pages/accueil.html">Accueil</a>
+      <a href="../pages/espacePerso.html">Espace perso</a>
+      <a href="../pages/destination.html">Destination</a>
+      <a href="../pages/voyageAudio.html">Voyage virtuel audio</a>
+      <a href="../pages/voyageVideo.html">Voyage virtuel vidéo</a>
+      <a href="../pages/contact.html">Contact</a>
+    </nav>
+    <hr />
+
+    <form name="inscription" method="post" action="">
+      Nom et prénom<br />
+      <input type="text" name="nom" value="" pattern=".+@globex\."/><br />
+      Email<br />
+      <input type="email" name="email" value="" placeholder="xyz@.com"/><br />
+      Telephone<br />
+      <input
+        type="tel"
+        name="telephone"
+        value=""
+        pattern="[0-9]{10}"
+      /><br />
+      Message<br />
+      <textarea name="message" cols="30" rows="10"></textarea><br />
+      <input type="submit" name="envoyer" value="envoyer" />
+    </form>
+  </body>
+</html>
