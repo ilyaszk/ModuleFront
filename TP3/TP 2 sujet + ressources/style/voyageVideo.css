@@ -1,0 +1,31 @@
+
+.cardVideo {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    padding: 20px;
+    margin: 50px;
+}
+
+.cardVideo .card-header {
+    background: #ceb0a6;
+    border-radius: 10px 0 0 10px ;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    line-height: 40px;
+    width: 85%;
+}
+
+.cardVideo video {
+    width: 15%;
+    height: auto;
+    border-radius: 0 10px 10px 0;
+    margin: 0;
+    padding: 0;
+}
