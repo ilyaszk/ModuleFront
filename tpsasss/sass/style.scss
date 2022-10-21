@@ -1,0 +1,31 @@
+$couleur: orange;
+$element: 4;
+$tableau_tailles: "petit", "standard", "moyen", "grand";
+$i: 0;
+$classe: classe-generique;
+
+@function premiere_entree($tableau_tailles) {
+  @return nth($tableau_tailles, 1);
+}
+
+@function derniere_entree($tableau_tailles) {
+  @return nth($tableau_tailles, length($tableau_tailles));
+}
+
+.first {
+  content: premiere_entree($tableau_tailles);
+}
+.last {
+  content: derniere_entree($tableau_tailles);
+}
+
+@mixin taille($tableau_tailles, $i, $classe) {
+  @each $item in $tableau_tailles {
+    .#{$classe}-#{$item} {
+      $i: $i + 1;
+      width: (100% / length($tableau_tailles)) * $i;
+    }
+  }
+}
+
+@include taille($tableau_tailles, $i, $classe);

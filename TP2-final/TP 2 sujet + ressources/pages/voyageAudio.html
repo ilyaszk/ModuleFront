@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voyage audio</title>
     <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/voyageAudio.css" />
   </head>
   <body>
     <nav class="menu">
@@ -13,12 +14,20 @@
       <ul>
         <li><a href="../pages/accueil.html">Accueil</a></li>
         <li class="dropdown">
-          <a class="dropbtn" href="../pages/espacePerso.html">Espace perso</a>
+          <a class="dropbtn" href="">Espace perso</a>
           <ul class="dropdown-content">
             <li><a href="">Connexion</a></li>
-            <li><a href="">Mes informations</a></li>
-            <li><a href="">Mes Messagerie</a></li>
-            <li><a href="">Mes Historique</a></li>
+            <li class="sousMenu">
+              <a href="">Mes informations</a>
+              <!-- sous menu deroulant -->
+              <ul class="listSousMenu">
+                <li><a href="">Nom et prenom</a></li>
+                <li><a href="">Numero</a></li>
+                <li><a href="">Email</a></li>
+              </ul>
+            </li>
+            <li><a href="">Messagerie</a></li>
+            <li><a href="">Historique</a></li>
           </ul>
         </li>
         <li><a href="../pages/destination.html">Destination</a></li>
@@ -33,47 +42,76 @@
     </nav>
     <article id="contenu-page">
       <section>
-        <h3>Audio 1</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolorem
-          sequi quam, quasi distinctio repellat nobis ex delectus ipsa minus
-          dolore, impedit deserunt illum, voluptas veritatis! Doloremque saepe
-          quisquam amet?
-        </p>
-        <audio controls autoplay src="../songs/Sons.mp3"></audio>
+        <div class="card">
+          <div class="card-header">
+            <h2>Audio 1</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+              dolorem sequi quam, quasi distinctio repellat nobis ex delectus
+              ipsa minus dolore, impedit deserunt illum, voluptas veritatis!
+              Doloremque saepe quisquam amet?
+            </p>
+          </div>
+          <div class="card-body">
+            <audio controls muted autoplay> 
+              <source  src="../songs/Sons.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
       </section>
       <section>
-        <h3>Audio 2</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolorem
-          sequi quam, quasi distinctio repellat nobis ex delectus ipsa minus
-          dolore, impedit deserunt illum, voluptas veritatis! Doloremque saepe
-          quisquam amet?
-        </p>
-        <audio controls src="../songs/happy-day-113985.mp3"></audio>
+        <div class="card">
+          <div class="card-header">
+            <h2>Audio 2</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+              dolorem sequi quam, quasi distinctio repellat nobis ex delectus
+              ipsa minus dolore, impedit deserunt illum, voluptas veritatis!
+              Doloremque saepe quisquam amet?
+            </p>
+          </div>
+          <div class="card-body">
+            <audio controls>
+              <source src="../songs/powerful-beat-121791.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
       </section>
       <section>
-        <h3>Audio 3</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolorem
-          sequi quam, quasi distinctio repellat nobis ex delectus ipsa minus
-          dolore, impedit deserunt illum, voluptas veritatis! Doloremque saepe
-          quisquam amet?
-        </p>
-        <audio
-          controls
-          src="../songs/leonell-cassio-the-blackest-bouquet-118766.mp3"
-        ></audio>
+        <div class="card">
+          <div class="card-header">
+            <h2>Audio 3</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+              dolorem sequi quam, quasi distinctio repellat nobis ex delectus
+              ipsa minus dolore, impedit deserunt illum, voluptas veritatis!
+              Doloremque saepe quisquam amet?
+            </p>
+          </div>
+          <div class="card-body">
+            <audio controls>
+              <source src="../songs/leonell-cassio-the-blackest-bouquet-118766.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
       </section>
       <section>
-        <h3>Audio 4</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod dolorem
-          sequi quam, quasi distinctio repellat nobis ex delectus ipsa minus
-          dolore, impedit deserunt illum, voluptas veritatis! Doloremque saepe
-          quisquam amet?
-        </p>
-        <audio controls src="../songs/powerful-beat-121791.mp3"></audio>
+        <div class="card">
+          <div class="card-header">
+            <h2>Audio 4</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod
+              dolorem sequi quam, quasi distinctio repellat nobis ex delectus
+              ipsa minus dolore, impedit deserunt illum, voluptas veritatis!
+              Doloremque saepe quisquam amet?
+            </p>
+          </div>
+          <div class="card-body">
+            <audio controls>
+              <source src="../songs/happy-day-113985.mp3" type="audio/mpeg" />
+            </audio>
+          </div>
+        </div>
       </section>
     </article>
   </body>

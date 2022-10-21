@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Voyage vidéo</title>
     <link rel="stylesheet" href="../style/style.css" />
+    <link rel="stylesheet" href="../style/voyageVideo.css" />
   </head>
   <body>
     <nav class="menu">
@@ -14,12 +15,20 @@
       <ul>
         <li><a href="../pages/accueil.html">Accueil</a></li>
         <li class="dropdown">
-          <a class="dropbtn" href="../pages/espacePerso.html">Espace perso</a>
+          <a class="dropbtn" href="">Espace perso</a>
           <ul class="dropdown-content">
             <li><a href="">Connexion</a></li>
-            <li><a href="">Mes informations</a></li>
-            <li><a href="">Mes Messagerie</a></li>
-            <li><a href="">Mes Historique</a></li>
+            <li class="sousMenu">
+              <a href="">Mes informations</a>
+              <!-- sous menu deroulant -->
+              <ul class="listSousMenu">
+                <li><a href="">Nom et prenom</a></li>
+                <li><a href="">Numero</a></li>
+                <li><a href="">Email</a></li>
+              </ul>
+            </li>
+            <li><a href="">Messagerie</a></li>
+            <li><a href="">Historique</a></li>
           </ul>
         </li>
         <li><a href="../pages/destination.html">Destination</a></li>
@@ -34,62 +43,70 @@
     </nav>
 
     <article id="contenu-page">
-      <h3>video 1</h3>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-        dignissimos vitae, nihil expedita dicta voluptates, laborum, asperiores
-        cum commodi excepturi velit laboriosam voluptas inventore et? Magni
-        exercitationem illum excepturi reiciendis.
-      </p>
-      <video
-        autoplay
-        width="320"
-        height="240"
-        controls
-        src="../video/file.mp4"
-      ></video>
-      <h3>video 2</h3>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-        dignissimos vitae, nihil expedita dicta voluptates, laborum, asperiores
-        cum commodi excepturi velit laboriosam voluptas inventore et? Magni
-        exercitationem illum excepturi reiciendis.
-      </p>
-
-      <video
-        width="320"
-        height="240"
-        controls
-        src="../video/production ID 5078580.mp4"
-      ></video>
-      <h3>video 3</h3>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-        dignissimos vitae, nihil expedita dicta voluptates, laborum, asperiores
-        cum commodi excepturi velit laboriosam voluptas inventore et? Magni
-        exercitationem illum excepturi reiciendis.
-      </p>
-
-      <video
-        width="320"
-        height="240"
-        controls
-        src="../video/production ID 5078580.mp4"
-      ></video>
-      <h3>video 4</h3>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
-        dignissimos vitae, nihil expedita dicta voluptates, laborum, asperiores
-        cum commodi excepturi velit laboriosam voluptas inventore et? Magni
-        exercitationem illum excepturi reiciendis.
-      </p>
-
-      <video
-        width="320"
-        height="240"
-        controls
-        src="../video/pexels-cottonbro-9544324.mp4"
-      ></video>
+      <section class="cardVideo">
+        <div class="card-header">
+          <h3>video 1</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
+            dignissimos vitae, nihil expedita dicta voluptates, laborum,
+            asperiores cum commodi excepturi velit laboriosam voluptas inventore
+            et? Magni exercitationem illum excepturi reiciendis.
+          </p>
+        </div>
+        <video
+          autoplay
+          width="320"
+          height="240"
+          controls
+          src="../video/pexels-cottonbro-9544324.mp4"
+        ></video>
+      </section>
+      <section class="cardVideo">
+        <div class="card-header">
+          <h3>video 2</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
+            dignissimos vitae, nihil expedita dicta voluptates, laborum,
+            asperiores cum commodi excepturi velit laboriosam voluptas inventore
+            et? Magni exercitationem illum excepturi reiciendis.
+          </p>
+        </div>
+        <video
+          width="320"
+          height="240"
+          controls
+          src="../video/file.mp4"
+        ></video>
+      </section>
+      <section class="cardVideo">
+        <div class="card-header">
+          <h3>video 3</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
+            dignissimos vitae, nihil expedita dicta voluptates, laborum,
+            asperiores cum commodi excepturi velit laboriosam voluptas inventore
+            et? Magni exercitationem illum excepturi reiciendis.
+          </p>
+        </div>
+        <video
+          width="320"
+          height="240"
+          controls
+          src="../video/production ID 5078580.mp4"
+        ></video>
+      </section>
+      <section class="cardVideo">
+        <div class="card-header">
+          <h3>video 4</h3>
+          <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Enim
+            dignissimos vitae, nihil expedita dicta voluptates, laborum,
+            asperiores cum commodi excepturi velit laboriosam voluptas inventore
+            et? Magni exercitationem illum excepturi reiciendis.
+          </p>
+        </div>
+        <video width="320" height="240" controls src="../video/sq.mp4"></video>
+      </section>
     </article>
   </body>
 </html>

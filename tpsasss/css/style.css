@@ -1,0 +1,19 @@
+.first {
+  content: "petit"; }
+
+.last {
+  content: "grand"; }
+
+.classe-generique-petit {
+  width: 25%; }
+
+.classe-generique-standard {
+  width: 50%; }
+
+.classe-generique-moyen {
+  width: 75%; }
+
+.classe-generique-grand {
+  width: 100%; }
+
+/*# sourceMappingURL=style.css.map */

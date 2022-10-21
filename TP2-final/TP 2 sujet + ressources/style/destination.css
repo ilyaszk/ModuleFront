@@ -40,7 +40,7 @@
   object-fit: cover;
 }
 .zoneTableau table button {
-  background: #fc8862;
+  background: #ceb0a6;
   border: none;
   color: #fff;
   font-size: 20px;
@@ -59,6 +59,7 @@
 .zoneTableau table tr:hover {
   background-color: #af7460;
 }
+
 
 
 
