@@ -59,9 +59,110 @@
 .zoneTableau table tr:hover {
   background-color: #af7460;
 }
+/* btn */
+.ajoutDestination{
+  background: #ceb0a6;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.ajoutDestination:hover {
+  background: #000;
+}
 
+#modal{
+  /* css modal formulaire */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;  
+}
 
+#modal #contenuModal{
+  /* css contenu modal */
+  background-color: #fff;
+  width: 50%;
+  height: 50%;
+  border-radius: 10px;
+  margin: 15% 20% 20% 25%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
+/* input */
 
+#modal input{
+  width: 98%;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #000;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px;
+}
 
+/* btn */
 
+#modal button{
+  background: #ceb0a6;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  margin: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: auto;
+  margin: 0 auto;
+
+}
+
+#modal button:hover{
+  background: #000;
+}
+
+#display-image{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#page-wrapper {
+  width: 600px;
+  background: #FFF;
+  padding: 1em;
+  margin: 1em auto;
+  min-height: 350px;
+  border-top: 5px solid #000;
+  box-shadow: 0 1px 7px rgba(0,0,0,0.8);
+  border-radius: 10px;
+}
+
+#fileDisplayArea img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#fileDisplayArea {
+  width: 100%;
+}

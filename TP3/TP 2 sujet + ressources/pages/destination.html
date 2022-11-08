@@ -14,6 +14,26 @@
         <table id="table">
         
         </table>
+        <!-- centrer -->
+        <button class="ajoutDestination" onclick=ajouterDestination()>Ajouter une destination</button>
+        <div id="modal">
+          <dic id="contenuModal" action="destination.html" method="POST">
+            <input type="text" name="nom" id="nom" placeholder="Nom de la ville" value="" />
+            <input type="text" name="desc" id="desc" placeholder="Description de la ville" value="" />
+            <input type="text" name="prix" id="prix" placeholder="Prix du voyage" value="" />
+            <div id="page-wrapper">
+        
+              <h1>Image File Reader</h1>
+              <div>
+                  Select an image file: 
+                  <input type="file" id="fileInput">
+              </div>
+              <div id="fileDisplayArea"></div>
+            </div>
+            <button id="btnAjouter">Ajouter</button>
+          </dic>
+        </div>
+        
       </section>
     </article>
   </body>
