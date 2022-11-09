@@ -7,7 +7,7 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.card-header {
+.card-header-audio {
   background: #ceb0a6;
   border-radius: 10px 10px 0 0;
   padding: 10px;
