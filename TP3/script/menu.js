@@ -372,7 +372,7 @@ function generateTableau() {
       element.id +
       ">" +
       element.prix +
-      "€<div><button>Découvrir</button><button onclick=modifierDestination(this)>Modifier</button><button onclick=supprimerDestination(this)>Supprimer</button></div></td>";
+      "€<div><button>Découvrir</button><button onclick=modifierDestination("+element.id+")>Modifier</button><button onclick=supprimerDestination(this)>Supprimer</button></div></td>";
     html += "</tr>";
   });
 
@@ -394,14 +394,66 @@ function supprimerDestination(dest) {
   });
 }
 
-function modifierDestination(dest) {
-  let id = dest.parentElement.parentElement.id;
-  console.log(id);
-  destinations.forEach((element) => {
-    if (element.id == id) {
-      //remove from destinations element
-      destinations.splice(destinations.indexOf(element), 1);
+function modifierDestination(id) {
+  let modal = document.getElementById("modal");
+  modal.style.display = "block";
+
+  let dest = destinations.find((element) => element.id == id);
+
+  let nom = document.getElementById("nom").value = dest.nom;
+  let desc = document.getElementById("desc").value = dest.desc;
+  let prix = document.getElementById("prix").value = dest.prix;
+  let imgAdd = dest.image;
+  let fileDisplayArea = document.getElementById("fileDisplayArea");
+  fileDisplayArea.innerHTML = "<img src='" + imgAdd + "' />";
+  let btnAjouter = document.getElementById("btnAjouter");
+  btnAjouter.innerHTML = "Modifier";
+  btnAjouter.onclick = function () {
+    nom = document.getElementById("nom").value;
+    desc = document.getElementById("desc").value;
+    prix = document.getElementById("prix").value;
+    if (nom != "" && desc != "" && prix != "" ) {
+      dest.nom = nom;
+      dest.desc = desc;
+      dest.prix = prix;
+      if (imgAdd != dest.image) {
+        dest.image = imgAdd.src;
+      }
+      modal.style.display = "none";
       generateTableau();
+    }else{ 
+      alert("Veuillez remplir tous les champs");
+    }
+
+  };
+
+  window.onclick = function (event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  };
+  generateTableau();
+  let fileInput = document.getElementById("fileInput");
+  fileInput.addEventListener("change", function (e) {
+    let file = fileInput.files[0];
+    var imageType = /image.*/;
+    if (file.type.match(imageType)) {
+      var reader = new FileReader();
+      
+      reader.onload = function (e) {
+        fileDisplayArea.innerHTML = "";
+        
+        imgAdd = new Image();
+  
+        imgAdd.src = reader.result;
+        console.log(imgAdd.src);
+  
+        fileDisplayArea.appendChild(imgAdd);
+      };
+  
+      reader.readAsDataURL(file);
+    }else{
+      fileDisplayArea.innerHTML = "file not supported!";
     }
   });
 }
@@ -413,12 +465,16 @@ function ajouterDestination() {
   let imgAdd = "../img/inconnu.png";
   let modal = document.getElementById("modal");
   modal.style.display = "block";
+  let nom = document.getElementById("nom").value = "";
+  let desc = document.getElementById("desc").value = "";
+  let prix = document.getElementById("prix").value = "";
 
   let btnAjouter = document.getElementById("btnAjouter");
+  btnAjouter.innerHTML = "Ajouter";
   btnAjouter.onclick = function () {
-    let nom = document.getElementById("nom").value;
-    let desc = document.getElementById("desc").value;
-    let prix = document.getElementById("prix").value;
+    nom = document.getElementById("nom").value;
+    desc = document.getElementById("desc").value;
+    prix = document.getElementById("prix").value;
     if (nom != "" && desc != "" && prix != "" ) {
       let id = destinations.length + 1;
       let destination = new Destination(id, nom, desc, prix, imgAdd.src);
