@@ -1,12 +1,12 @@
-form{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-}
-form input{
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+
+  input {
     width: 50%;
     height: 50px;
     border: 1px solid #000;
@@ -14,8 +14,9 @@ form input{
     margin: 10px;
     padding: 10px;
     font-size: 20px;
-}
-form textarea{
+  }
+
+  textarea {
     width: 50%;
     height: 200px;
     border: 1px solid #000;
@@ -23,9 +24,9 @@ form textarea{
     margin: 10px;
     padding: 10px;
     font-size: 20px;
-}
+  }
 
-form button{
+  button {
     width: 50%;
     height: 50px;
     border: 1px solid #000;
@@ -38,5 +39,5 @@ form button{
     font-weight: 700;
     text-transform: uppercase;
     cursor: pointer;
+  }
 }
-

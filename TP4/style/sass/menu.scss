@@ -13,45 +13,39 @@ body {
   padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   top: 0;
-  background: #ceb0a6;;
-  
+  background: #ceb0a6;
+  > h1 {
+    text-align: center;
+    color: #fff;
+    font-size: 50px;
+    font-weight: 300;
+  }
+  > ul {
+    display: flex;
+    justify-content: center;
+    li {
+      list-style: none;
+      margin: 0 10px;
+      a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        text-transform: uppercase;
+        padding-bottom: 5px;
+        line-height: 40px;
+        cursor: pointer;
+      }
+      a:hover {
+        color: #000;
+        border-bottom: 4px solid #fff;
+      }
+      a.active {
+        color: #000;
+      }
+    }
+  }
 }
-#menu > h1 {
-  text-align: center;
-  color: #fff;
-  font-size: 50px;
-  font-weight: 300;
-}
-#menu >ul {
-  display: flex;
-  justify-content: center;
-}
-
-#menu ul li {
-  list-style: none;
-  margin: 0 10px;
-}
-
-#menu ul li a {
-  text-decoration: none;
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  text-transform: uppercase;
-  padding-bottom: 5px;
-  line-height: 40px;
-  cursor: pointer;
-}
-
-#menu ul li a:hover {
-  color: #000;
-  border-bottom: 4px solid #fff;
-}
-
-#menu ul li a.active {
-  color: #000;
-}
-
 .dropdown {
   position: relative;
   display: inline-block;
@@ -63,25 +57,21 @@ body {
   position: absolute;
   background-color: #ceb0a6;
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  li {
+    padding-right: 20px;
+  }
+  a {
+    color: black;
+    text-decoration: none;
+    display: block;
+  }
 }
 
-.dropdown-content li {
- padding-right: 20px;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  text-decoration: none;
+.dropdown:hover .dropdown-content {
   display: block;
 }
-
-/* Change color of dropdown links on hover */
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
 /*ne pas afficher le menu déroulant sousMenu*/
 .listSousMenu {
   display: none;
@@ -93,14 +83,12 @@ body {
   background-color: #ceb0a6;
   padding: 0;
   min-width: 250px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
   margin-left: 150px;
   margin-top: -35px;
 }
 
-
 #contenu-page {
   margin: 300px 20px 20px 20px;
-
 }

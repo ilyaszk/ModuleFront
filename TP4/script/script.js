@@ -372,7 +372,9 @@ function generateTableau() {
       element.id +
       ">" +
       element.prix +
-      "€<div><button>Découvrir</button><button onclick=modifierDestination("+element.id+")>Modifier</button><button onclick=supprimerDestination(this)>Supprimer</button></div></td>";
+      "€<div><button>Découvrir</button><button onclick=modifierDestination(" +
+      element.id +
+      ")>Modifier</button><button onclick=supprimerDestination(this)>Supprimer</button></div></td>";
     html += "</tr>";
   });
 
@@ -400,9 +402,9 @@ function modifierDestination(id) {
 
   let dest = destinations.find((element) => element.id == id);
 
-  let nom = document.getElementById("nom").value = dest.nom;
-  let desc = document.getElementById("desc").value = dest.desc;
-  let prix = document.getElementById("prix").value = dest.prix;
+  let nom = (document.getElementById("nom").value = dest.nom);
+  let desc = (document.getElementById("desc").value = dest.desc);
+  let prix = (document.getElementById("prix").value = dest.prix);
   let imgAdd = dest.image;
   let fileDisplayArea = document.getElementById("fileDisplayArea");
   fileDisplayArea.innerHTML = "<img src='" + imgAdd + "' />";
@@ -412,7 +414,7 @@ function modifierDestination(id) {
     nom = document.getElementById("nom").value;
     desc = document.getElementById("desc").value;
     prix = document.getElementById("prix").value;
-    if (nom != "" && desc != "" && prix != "" ) {
+    if (nom != "" && desc != "" && prix != "") {
       dest.nom = nom;
       dest.desc = desc;
       dest.prix = prix;
@@ -421,10 +423,9 @@ function modifierDestination(id) {
       }
       modal.style.display = "none";
       generateTableau();
-    }else{ 
+    } else {
       alert("Veuillez remplir tous les champs");
     }
-
   };
 
   window.onclick = function (event) {
@@ -439,20 +440,20 @@ function modifierDestination(id) {
     var imageType = /image.*/;
     if (file.type.match(imageType)) {
       var reader = new FileReader();
-      
+
       reader.onload = function (e) {
         fileDisplayArea.innerHTML = "";
-        
+
         imgAdd = new Image();
-  
+
         imgAdd.src = reader.result;
         console.log(imgAdd.src);
-  
+
         fileDisplayArea.appendChild(imgAdd);
       };
-  
+
       reader.readAsDataURL(file);
-    }else{
+    } else {
       fileDisplayArea.innerHTML = "file not supported!";
     }
   });
@@ -465,9 +466,9 @@ function ajouterDestination() {
   let imgAdd = "../img/inconnu.png";
   let modal = document.getElementById("modal");
   modal.style.display = "block";
-  let nom = document.getElementById("nom").value = "";
-  let desc = document.getElementById("desc").value = "";
-  let prix = document.getElementById("prix").value = "";
+  let nom = (document.getElementById("nom").value = "");
+  let desc = (document.getElementById("desc").value = "");
+  let prix = (document.getElementById("prix").value = "");
 
   let btnAjouter = document.getElementById("btnAjouter");
   btnAjouter.innerHTML = "Ajouter";
@@ -475,16 +476,15 @@ function ajouterDestination() {
     nom = document.getElementById("nom").value;
     desc = document.getElementById("desc").value;
     prix = document.getElementById("prix").value;
-    if (nom != "" && desc != "" && prix != "" ) {
+    if (nom != "" && desc != "" && prix != "") {
       let id = destinations.length + 1;
       let destination = new Destination(id, nom, desc, prix, imgAdd.src);
       destinations.push(destination);
       modal.style.display = "none";
       generateTableau();
-    }else{ 
+    } else {
       alert("Veuillez remplir tous les champs");
     }
-
   };
 
   window.onclick = function (event) {
@@ -499,25 +499,24 @@ function ajouterDestination() {
     let file = fileInput.files[0];
     var imageType = /image.*/;
     console.log("here");
-    
+
     if (file.type.match(imageType)) {
       var reader = new FileReader();
-      
+
       reader.onload = function (e) {
         fileDisplayArea.innerHTML = "";
-        
+
         imgAdd = new Image();
-  
+
         imgAdd.src = reader.result;
         console.log(imgAdd.src);
-  
+
         fileDisplayArea.appendChild(imgAdd);
       };
-  
+
       reader.readAsDataURL(file);
     } else {
       fileDisplayArea.innerHTML = "File not supported!";
     }
   });
 }
-
