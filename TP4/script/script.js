@@ -55,6 +55,8 @@ contenu_menu = {
     },
   ],
 };
+var isAdmin = false;
+var isUser = false;
 
 accueil();
 
@@ -81,8 +83,10 @@ Object.entries(contenu_menu).forEach(([key, value]) => {
             });
             html += "</ul>";
             html += "</li>";
+          } else if (element.titre === "Connexion") {
+            html += `<li><a onclick="afficherConnexion()">${element.titre}</a></li>`;
           } else {
-            html += `<a href="">${element.titre}</a>`;
+            html += `<li><a href="">${element.titre}</a></li>`;
           }
           html += "</li>";
         });
@@ -93,6 +97,7 @@ Object.entries(contenu_menu).forEach(([key, value]) => {
       html += "</li>";
     });
     html += "</ul>";
+    html += "<div class='mt-6' id='nomPersonneConnecte'></div>";
     html += "</nav>";
     //add to body
     document.body.innerHTML += html;
@@ -123,6 +128,7 @@ function accueil() {
   html += "</section>";
 
   document.getElementById("contenu-page").innerHTML = html;
+  genererConnexion();
 }
 
 function destination() {
@@ -152,6 +158,7 @@ function destination() {
   html += "<script class ='scriptSup' src='../script/tableau.js'></script>";
   document.getElementById("contenu-page").innerHTML = html;
   generateTableau();
+  genererConnexion();
 }
 
 function voyageAudio() {
@@ -223,6 +230,7 @@ function voyageAudio() {
   html += "</section>";
 
   document.getElementById("contenu-page").innerHTML = html;
+  genererConnexion();
 }
 
 function voyageVideo() {
@@ -281,6 +289,7 @@ function voyageVideo() {
   html += "</section>";
 
   document.getElementById("contenu-page").innerHTML = html;
+  genererConnexion();
 }
 
 function contact() {
@@ -300,6 +309,71 @@ function contact() {
   html += "</form>";
 
   document.getElementById("contenu-page").innerHTML = html;
+  genererConnexion();
+}
+
+function genererConnexion() {
+  var html = "<div class='modal-connexion'>";
+  html += "<div class='modal-connexion-content'>";
+  html += "<div class='modal-connexion-header'>";
+  html += "<div class='modal-connexion-title'>Connexion</div>";
+  html += "</div>";
+  html += "<div class='modal-connexion-body'>";
+  //pseudo et mdp formulaire
+  html += "Pseudo<br />";
+  html +=
+    "<input type='text' name='login' value='' pattern='.+@globex\\.' /><br />";
+  html += "Mot de passe<br />";
+  html += "<input type='password' name='password' value=''/><br />";
+  html += "<button onclick='connexion()'>Connexion</button>";
+  html += "</div>";
+  html += "</div>";
+  html += "</div>";
+
+  document.getElementById("contenu-page").innerHTML += html;
+}
+
+function afficherConnexion() {
+  var modal = document.querySelector(".modal-connexion");
+  modal.style.display = "block";
+}
+
+//appel ajax pour la connexion
+function connexion() {
+  var modal = document.querySelector(".modal-connexion");
+  var pseudo = document.querySelector("input[name='login']").value;
+  var mdp = document.querySelector("input[name='password']").value;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "../script/connexion.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.send("login=" + pseudo + "&password=" + mdp);
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      var reponse = xhr.responseText;
+      console.log(reponse);
+      if (reponse == "Failed") {
+        alert("Erreur de connexion");
+      }
+      if (reponse === "SuccessAdmin") {
+        modal.style.display = "none";
+        document.querySelector("#nomPersonneConnecte").innerHTML = pseudo;
+        isAdmin = true;
+        isUser = false;
+      }
+      if (reponse === "SuccessUser") {
+        modal.style.display = "none";
+        document.querySelector("#nomPersonneConnecte").innerHTML = pseudo;
+        isUser = true;
+        isAdmin = false;
+      }
+      //if on destination page
+      if (document.querySelector(".zoneTableau") !== null) {
+        destination();
+      }
+    }
+  };
 }
 
 class Destination {
@@ -349,46 +423,63 @@ destinations.push(destination4);
 //afficher les destinations dans le tableau
 function generateTableau() {
   let tableau = document.getElementById("table");
-  let html = "";
-  html += "<tr>";
-  html += "<th>Destination</th>";
-  html += "<th>Offre</th>";
-  html += "<th>Prix</th>";
-  html += "</tr>";
-
+  let html = "<div class='tableau'>";
+  html += "<div class='ligne row'>";
+  html += "<div class='col-xs-1 col-md-1'>Destination</div>";
+  html += "<div class='col-xs-3 col-md-3'>Photo</div>";
+  html += "<div class='col-xs-5 col-md-5'>Description</div>";
+  html += "<div class='col-xs-3 col-md-3'>Prix</div>";
+  html += "</div>";
   destinations.forEach((element) => {
-    html += "<tr>";
+    html += "<div class='ligne row'>";
+    html += "<div class='col-xs-1 col-md-1'>" + element.nom + "</div>";
     html +=
-      "<td class='destination'>" +
-      element.nom +
-      "<img style='vertical-align: middle; margin: 10px' src='" +
+      "<div class='col-xs-3 col-md-3'><img class='img-fluid img-thumbnail w-100' src='" +
       element.image +
       "' alt='Ville de " +
       element.nom +
-      "' /></td>";
-    html += "<td>" + element.desc + "</td>";
-    html +=
-      "<td id=" +
-      element.id +
-      ">" +
-      element.prix +
-      "€<div><button>Découvrir</button><button onclick=modifierDestination(" +
-      element.id +
-      ")>Modifier</button><button onclick=supprimerDestination(this)>Supprimer</button></div></td>";
-    html += "</tr>";
+      "' /></div>";
+    html += "<div class='col-xs-4 col-md-4'>" + element.desc + "</div>";
+    if (isAdmin) {
+      html +=
+        "<div class=' btnDelEdit col-xs-1 col-md-1'>" +
+        element.prix +
+        "€</div>";
+      html +=
+        "<div class='btnDelEdit col-xs-2 col-md-2'>" +
+        "<button>découvrir</button>" +
+        "<button onclick=modifierDestination(" +
+        element.id +
+        ")>Modifier</button>" +
+        "<button onclick=supprimerDestination(" +
+        element.id +
+        ")>Supprimer</button>" +
+        "</div>";
+    }
+    if (isUser) {
+      //retirere la div btnDelEdit
+      html +=
+        "<div class='decouvrir col-xs-1 col-md-1'>" + element.prix + "€</div>";
+      html +=
+        "<div class='decouvrir col-xs-2 col-md-2'>" +
+        "<button>découvrir</button>" +
+        "</div>";
+    }
+    if (!isAdmin && !isUser) {
+      html += "<div class='col-xs-3 col-md-3'>" + element.prix + "€</div>";
+    }
+    html += "</div>";
   });
-
+  html += "</div>";
   tableau.innerHTML = html;
 }
 
-function supprimerDestination(dest) {
+function supprimerDestination(idDest) {
   //supp from destinations
   //parentElement = td
   //parentElement.parentElement = tr
-  let id = dest.parentElement.parentElement.id;
-  console.log(id);
   destinations.forEach((element) => {
-    if (element.id == id) {
+    if (element.id == idDest) {
       //remove from destinations element
       destinations.splice(destinations.indexOf(element), 1);
       generateTableau();
@@ -407,7 +498,8 @@ function modifierDestination(id) {
   let prix = (document.getElementById("prix").value = dest.prix);
   let imgAdd = dest.image;
   let fileDisplayArea = document.getElementById("fileDisplayArea");
-  fileDisplayArea.innerHTML = "<img src='" + imgAdd + "' />";
+  fileDisplayArea.innerHTML =
+    "<img class='img-fluid img-thumbnail' src='" + imgAdd + "' />";
   let btnAjouter = document.getElementById("btnAjouter");
   btnAjouter.innerHTML = "Modifier";
   btnAjouter.onclick = function () {
@@ -465,10 +557,14 @@ function ajouterDestination() {
   //recharger le tableau
   let imgAdd = "../img/inconnu.png";
   let modal = document.getElementById("modal");
+
   modal.style.display = "block";
   let nom = (document.getElementById("nom").value = "");
   let desc = (document.getElementById("desc").value = "");
   let prix = (document.getElementById("prix").value = "");
+  let fileInput = document.getElementById("fileInput");
+  let fileDisplayArea = document.getElementById("fileDisplayArea");
+  fileDisplayArea.innerHTML = "";
 
   let btnAjouter = document.getElementById("btnAjouter");
   btnAjouter.innerHTML = "Ajouter";
@@ -493,8 +589,7 @@ function ajouterDestination() {
     }
   };
   generateTableau();
-  let fileInput = document.getElementById("fileInput");
-  let fileDisplayArea = document.getElementById("fileDisplayArea");
+
   fileInput.addEventListener("change", function (e) {
     let file = fileInput.files[0];
     var imageType = /image.*/;
