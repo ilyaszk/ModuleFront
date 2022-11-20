@@ -1,0 +1,32 @@
+{
+  "destinations": [
+    {
+      "id": 1,
+      "nom": "Paris",
+      "desc": "Paris est la capitale de la France. Elle est située sur la rive gauche de la Seine, dans le nord-est de la France, à environ 350 km de la mer du Nord, à 105 km de la Belgique, à 560 km de l'Allemagne et à 720 km de l'Espagne.",
+      "prix": 1000,
+      "image": "../img/paris.jpeg"
+    },
+    {
+      "id": 2,
+      "nom": "Budapest",
+      "desc": "Budapest est la capitale et la plus grande ville de la Hongrie. Elle est située au bord de la rivière Danube, dans la plaine de Pannonie, à 80 km de la frontière avec la Slovaquie et à 175 km de la frontière avec l'Ukraine.",
+      "prix": 1500,
+      "image": "../img/budapest.jpeg"
+    },
+    {
+      "id": 3,
+      "nom": "Rome",
+      "desc": "Rome est la capitale de l'Italie. Elle est située sur la rive gauche de la Tiber, dans le centre de l'Italie, à environ 1 290 km de la mer Méditerranée, à 1 500 km de la mer Méditerranée et à 1 500 km de la mer Méditerranée.",
+      "prix": 2000,
+      "image": "../img/rome.jpeg"
+    },
+    {
+      "id": 4,
+      "nom": "Londres",
+      "desc": "Londres est la capitale de l'Angleterre et du Royaume-Uni. Elle est située sur la rive sud de la Tamise, dans le sud-est de l'Angleterre, à environ 50 km de la mer du Nord, à 340 km de la mer du Nord et à 340 km de la mer du Nord.",
+      "prix": 2500,
+      "image": "../img/londres.jpeg"
+    }
+  ]
+}
