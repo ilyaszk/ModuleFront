@@ -97,7 +97,7 @@ Object.entries(contenu_menu).forEach(([key, value]) => {
       html += "</li>";
     });
     html += "</ul>";
-    html += "<div class='mt-6' id='nomPersonneConnecte'></div>";
+    html += " <div id='nomPersonneConnecte'></div>";
     html += "</nav>";
     //add to body
     document.body.innerHTML += html;
@@ -133,8 +133,9 @@ function accueil() {
 
 function destination() {
   var html = "<section class='zoneTableau'>";
-  html += "<table id='table'>";
-  html += "</table>";
+  html += "<h2>Destination</h2>";
+  html += "<div id='table'>";
+  html += "</div>";
   html +=
     "<button class='ajoutDestination' onclick=ajouterDestination()>Ajouter une destination</button>";
   html += "<div id='modal'>";
@@ -358,13 +359,19 @@ function connexion() {
       }
       if (reponse === "SuccessAdmin") {
         modal.style.display = "none";
-        document.querySelector("#nomPersonneConnecte").innerHTML = pseudo;
+        document.querySelector("#nomPersonneConnecte").innerHTML =
+          "<img src='https://img.icons8.com/ios-glyphs/30/null/user--v1.png'/><p id='nom'> " +
+          pseudo +
+          "</p>";
         isAdmin = true;
         isUser = false;
       }
       if (reponse === "SuccessUser") {
         modal.style.display = "none";
-        document.querySelector("#nomPersonneConnecte").innerHTML = pseudo;
+        document.querySelector("#nomPersonneConnecte").innerHTML =
+          "<img src='https://img.icons8.com/ios-glyphs/30/null/user--v1.png'/><p id='nom'>" +
+          pseudo +
+          "</p>";
         isUser = true;
         isAdmin = false;
       }
@@ -423,7 +430,8 @@ destinations.push(destination4);
 //afficher les destinations dans le tableau
 function generateTableau() {
   let tableau = document.getElementById("table");
-  let html = "<div class='tableau'>";
+  let html = "";
+  html += "<div class='tableau'>";
   html += "<div class='ligne row'>";
   html += "<div class='col-xs-1 col-md-1'>Destination</div>";
   html += "<div class='col-xs-3 col-md-3'>Photo</div>";
@@ -588,7 +596,6 @@ function ajouterDestination() {
       modal.style.display = "none";
     }
   };
-  generateTableau();
 
   fileInput.addEventListener("change", function (e) {
     let file = fileInput.files[0];
