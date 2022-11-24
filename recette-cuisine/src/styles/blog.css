@@ -1,0 +1,58 @@
+.blog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.article_zone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  margin: 0 0 20px;
+  padding: 20px;
+}
+
+.formulaire {
+  display: inline-grid;
+}
+.formulaire input {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(145, 141, 141);
+  box-sizing: border-box;
+  font-size: 1rem;
+  width: 30rem;
+  height: 3rem;
+}
+
+.formulaire textarea {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(145, 141, 141);
+  box-sizing: border-box;
+  font-size: 1rem;
+  width: 30rem;
+  height: 10rem;
+}
+
+.formulaire button {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  width: 15rem;
+  height: 3rem;
+  background-color: #df6844;
+  color: white;
+  font-weight: 700;
+  justify-self: end;
+}

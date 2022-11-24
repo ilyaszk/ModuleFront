@@ -1,0 +1,39 @@
+/* <div className="card-recette"> */
+/* <h1>{props.recette.strMeal}</h1> */
+/* <img src={props.recette.strMealThumb} alt="recette" /> */
+/* <p>{props.recette.strInstructions}</p> */
+/* </div> */
+/* ); */
+
+.card-recette {
+  width: 20%;
+  max-height: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f7f5f2;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  margin: 10px;
+  color: black;
+  text-align: justify;
+}
+
+.card-recette h1 {
+  font-size: 1.5rem;
+}
+
+.card-recette img {
+  width: 80%;
+  height: 80%;
+  border-radius: 15px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.description {
+  font-size: 1rem;
+  margin: 25px;
+  height: 200px;
+  overflow: auto;
+}

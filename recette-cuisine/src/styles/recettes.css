@@ -1,0 +1,39 @@
+.recettes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header-app {
+  min-height: 15vh;
+}
+
+.header-app h1 {
+  color: #df6844;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.container-recettes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.barre-recherche {
+  width: 400px;
+  padding: 12px 20px;
+  margin: 8px 0 30px;
+  box-sizing: border-box;
+  border: 2px solid rgb(141, 136, 136);
+  border-radius: 15px;
+  outline: none;
+}
+
+img {
+  width: 20%;
+  height: 20%;
+}
