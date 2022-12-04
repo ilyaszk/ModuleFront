@@ -1,6 +1,7 @@
 import Recettes from "./components/Recettes";
 import Blog from "./components/Blog";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import RecetteDetails from "./components/RecetteDetails";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Recettes />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/recetteDetails" element={<RecetteDetails />} />
       </Routes>
     </BrowserRouter>
   );

@@ -81,3 +81,31 @@
   min-width: 90%;
   min-height: 10rem;
 }
+
+@media screen and (max-width: 900px) {
+  .article {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .article__header {
+    flex-direction: column;
+  }
+
+  .article__header input {
+    width: 90%;
+  }
+
+  .article__content textarea {
+    width: 90%;
+  }
+
+  .article__footer {
+    flex-direction: column;
+  }
+
+  .article__footer button {
+    margin: 0 0 20px;
+  }
+}

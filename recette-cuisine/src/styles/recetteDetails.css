@@ -1,0 +1,95 @@
+.btn-Retour {
+  width: 7%;
+  height: 40px;
+  background-color: #df6844;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-Retour:hover {
+  background-color: #f5a28a;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-Retour:active {
+  transform: scale(1.1);
+  transition: all 0.05s ease-in-out;
+}
+.detail {
+  display: flex;
+  flex-direction: row;
+  width: 90%;
+  margin: 0 0 20px;
+  padding: 20px;
+}
+.ingredient {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  margin-left: 10%;
+  margin-top: 3%;
+  padding: 20px;
+  border: 1px solid rgb(56, 56, 56);
+}
+
+.ingredient p {
+  text-align: justify;
+  margin: 0 0 20px;
+  padding: 0;
+  word-wrap: break-word;
+  font-weight: 700;
+  color: #1f1c1b;
+}
+
+.ingredient h2 {
+  text-align: justify;
+  margin: 0 0 20px;
+  padding: 0;
+  word-wrap: break-word;
+  font-weight: 800;
+  text-decoration: underline;
+  color: #1f1c1b;
+}
+
+img {
+  width: 30%;
+  height: 30%;
+  border-radius: 20px;
+}
+.instruction {
+  width: 60%;
+  text-align: center;
+  margin-left: 10%;
+  margin-top: 3%;
+  padding: 20px;
+  border: 1px solid rgb(56, 56, 56);
+}
+
+.instruction p {
+  text-align: justify;
+  margin: 0 0 20px;
+  padding: 0;
+  word-wrap: break-word;
+  font-weight: 700;
+  color: #1f1c1b;
+}
+
+.instruction h2 {
+  text-align: justify;
+  margin: 0 0 20px;
+  padding: 0;
+  word-wrap: break-word;
+  font-weight: 800;
+  text-decoration: underline;
+  color: #1f1c1b;
+}

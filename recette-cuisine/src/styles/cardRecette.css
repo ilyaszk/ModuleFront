@@ -52,3 +52,40 @@
   height: 200px;
   overflow: auto;
 }
+
+.btn-Recette {
+  width: 60%;
+  height: 50px;
+  background-color: #df6844;
+  color: white;
+  font-weight: 700;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-Recette:hover {
+  background-color: #f5a28a;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-Recette:active {
+  transform: scale(1.1);
+  transition: all 0.05s ease-in-out;
+}
+
+@media screen and (max-width: 750px) {
+  .card-recette {
+    width: 80%;
+    max-height: 100%;
+    margin: 10px;
+  }
+  .card-recette img:active {
+    transform: scale(1);
+  }
+}

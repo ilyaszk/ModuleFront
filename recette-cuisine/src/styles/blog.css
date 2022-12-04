@@ -72,3 +72,36 @@
   color: red;
   font-size: 0.8rem;
 }
+
+@media screen and (max-width: 900px) {
+  .formulaire input {
+    width: 20rem;
+  }
+
+  .formulaire textarea {
+    min-width: 30rem;
+    max-width: 30rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .formulaire input {
+    width: 15rem;
+  }
+
+  .formulaire textarea {
+    min-width: 25rem;
+    max-width: 25rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .formulaire input {
+    width: 10rem;
+  }
+
+  .formulaire textarea {
+    min-width: 20rem;
+    max-width: 20rem;
+  }
+}

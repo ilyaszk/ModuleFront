@@ -16,7 +16,9 @@ const Article = (props) => {
     date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
   const handleDelete = () => {
-    props.deleteArticle(props.article.id);
+    if (window.confirm("Voulez-vous vraiment supprimer cet article ?")) {
+      props.deleteArticle(props.article.id);
+    }
   };
 
   const handleEdit = () => {

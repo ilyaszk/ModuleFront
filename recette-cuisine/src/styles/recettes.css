@@ -37,3 +37,13 @@ img {
   width: 20%;
   height: 20%;
 }
+
+@media screen and (max-width: 750px) {
+  .container-recettes {
+    flex-direction: column;
+    width: 100%;
+  }
+  .barre-recherche {
+    width: 90%;
+  }
+}
