@@ -30,6 +30,7 @@
   text-align: justify;
   margin: 0 0 20px;
   padding: 0;
+  word-wrap: break-word;
 }
 
 .article__footer {
@@ -50,4 +51,33 @@
   background-color: #df6844;
   color: white;
   font-weight: 700;
+}
+
+.article__footer button:hover {
+  background-color: #f5a28a;
+  cursor: pointer;
+}
+
+.article__header input {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(145, 141, 141);
+  box-sizing: border-box;
+  font-size: 1rem;
+  width: 30rem;
+  height: 3rem;
+}
+
+.article__content textarea {
+  margin: 0.5em;
+  padding: 0.5em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgb(145, 141, 141);
+  box-sizing: border-box;
+  font-size: 1rem;
+  min-width: 90%;
+  min-height: 10rem;
 }

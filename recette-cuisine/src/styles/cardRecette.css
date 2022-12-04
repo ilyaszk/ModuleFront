@@ -1,10 +1,3 @@
-/* <div className="card-recette"> */
-/* <h1>{props.recette.strMeal}</h1> */
-/* <img src={props.recette.strMealThumb} alt="recette" /> */
-/* <p>{props.recette.strInstructions}</p> */
-/* </div> */
-/* ); */
-
 .card-recette {
   width: 20%;
   max-height: 25%;
@@ -14,9 +7,31 @@
   background-color: #f7f5f2;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
-  margin: 10px;
+  margin: 15px;
   color: black;
   text-align: justify;
+}
+.card-recette img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0 0;
+}
+.card-recette:hover {
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  transform: scale(1.03);
+  transition: all 0.3s ease-in-out;
+}
+
+.card-recette img:hover {
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+.card-recette img:active {
+  transform: scale(2);
+  transition: all 0.05s ease-in-out;
+  opacity: 1;
 }
 
 .card-recette h1 {

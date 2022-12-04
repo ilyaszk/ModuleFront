@@ -1,19 +1,19 @@
 import React from "react";
 import Article from "./Article";
-import Formulaire from "./Formulaire";
 import HeaderApp from "./HeaderApp";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import axios from "axios";
 import "../styles/blog.css";
 const Blog = () => {
   const [articles, setArticles] = React.useState([]);
   const [author, setAuthor] = React.useState("");
   const [content, setContent] = React.useState("");
-  const article = {
-    author,
-    content,
-    date: Date.now(),
-  };
+  const [authorEdition, setAuthorEdition] = React.useState("");
+  const [contentEdition, setContentEdition] = React.useState("");
+  const [contentValueValide, setContentValueValide] = React.useState(true);
+
+  const [cardOnEdit, setCardOnEdit] = React.useState(false);
+
   const getData = () => {
     axios.get("http://localhost:3003/articles").then((res) => {
       if (res.data != null) {
@@ -27,15 +27,24 @@ const Blog = () => {
   useEffect(() => {
     getData();
   }, []);
-
   const handleSubmit = (e) => {
     e.preventDefault();
+
     setAuthor("");
     setContent("");
-    if (article.author !== "" && article.content !== "") {
-      axios.post("http://localhost:3003/articles", article).then((res) => {
-        getData();
-      });
+    if (author !== "" && content.length > 140) {
+      setContentValueValide(true);
+      axios
+        .post("http://localhost:3003/articles", {
+          author: author,
+          content: content,
+          date: Date.now(),
+        })
+        .then((res) => {
+          getData();
+        });
+    } else {
+      setContentValueValide(false);
     }
   };
 
@@ -46,39 +55,56 @@ const Blog = () => {
   };
 
   const handleEdit = (id) => {
-    axios.put("http://localhost:3003/articles/" + id, article).then((res) => {
-      getData();
-    });
+    axios
+      .put("http://localhost:3003/articles/" + id, {
+        author: authorEdition,
+        content: contentEdition,
+        date: Date.now(),
+      })
+      .then((res) => {
+        getData();
+      });
   };
 
   return (
     <div className="blog">
       <HeaderApp></HeaderApp>
       <h1>Blog</h1>
-      <form className="formulaire" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Auteur"
-          value={author}
-          onChange={(e) => setAuthor(e.target.value)}
-          required
-        ></input>
-        <textarea
-          placeholder="Contenu"
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          minLength={150}
-        ></textarea>
-        <button type="submit">Envoyer</button>
-      </form>
+      <div className="zoneFormulaire">
+        <form className="formulaire" onSubmit={handleSubmit}>
+          <input
+            type="text"
+            placeholder="Auteur"
+            value={author}
+            onChange={(e) => setAuthor(e.target.value)}
+            required
+          ></input>
+          <textarea
+            placeholder="Contenu"
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+          ></textarea>
+          <p className="msg_error" hidden={contentValueValide}>
+            Le contenu doit faire plus de 140 caractères
+          </p>
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+
       <div className="article_zone">
-        {articles.map((article) => {
+        {articles.map((pArticle) => {
           return (
             <Article
-              key={article.id}
-              article={article}
+              key={pArticle.id}
+              article={pArticle}
               deleteArticle={handleDelete}
               editArticle={handleEdit}
+              setAuthorEdition={setAuthorEdition}
+              setContentEdition={setContentEdition}
+              authorEdition={authorEdition}
+              contentEdition={contentEdition}
+              setCardOnEdit={setCardOnEdit}
+              cardOnEdit={cardOnEdit}
             ></Article>
           );
         })}

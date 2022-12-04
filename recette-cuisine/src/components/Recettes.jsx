@@ -16,7 +16,7 @@ const Recettes = () => {
           valeurRecherche
       )
       .then((res) => {
-        if (res.data.meals != null) {
+        if (res.data.meals != null || res.data.meals != undefined) {
           setRecettes(res.data.meals);
         } else {
           setRecettes([]);
