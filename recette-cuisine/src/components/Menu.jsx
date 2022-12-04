@@ -5,8 +5,6 @@ const Menu = () => {
   let activeStyle = {
     textDecoration: "underline",
   };
-
-  let activeClassName = "underline";
   return (
     <nav>
       <ul>
